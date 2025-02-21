@@ -15,7 +15,7 @@ network = NETWORKCONTROLLER()
 
 root = Tk()
 root.title("Hardware Monitor")
-root.geometry("1080x1920")
+root.geometry("1920x1080")
 
 frm = ttk.Frame(root, padding=10)
 frm.grid()
