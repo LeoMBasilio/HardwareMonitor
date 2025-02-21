@@ -11,6 +11,7 @@ class NETWORKCONTROLLER:
        self.network.set_dropin(psutil.net_io_counters().dropin)
        self.network.set_dropout(psutil.net_io_counters().dropout)
        self.network.set_speed(psutil.net_if_stats())
+       self.network.set_packets_loss()
 
     def getNetwork(self):
         return self.network

@@ -1,3 +1,4 @@
+from datetime import datetime
 class USERMODEL:
     def __init__(self):
         self.name = None
@@ -16,7 +17,7 @@ class USERMODEL:
         self.host = host
 
     def set_started(self, started):
-        self.started = started
+        self.started = datetime.fromtimestamp(started)
 
     def set_pid(self, pid):
         self.pid = pid

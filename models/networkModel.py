@@ -7,6 +7,7 @@ class NETWORKMODEL:
         self.dropin = None
         self.dropout = None
         self.speed = None
+        self.packets_loss = None
 
 
     def set_send(self, send):
@@ -61,6 +62,16 @@ class NETWORKMODEL:
         elif speed['Wireless'].isup == True:
             return speed['Wireless'].speed
 
+    def set_packets_loss(self):
+        total = self.packets_sent + self.packets_recv + self.dropin + self.dropout
+        if total == 0:
+            self.packets_loss = 0.0
+        
+        self.packets_loss = ((self.dropin + self.dropout) / total) * 100
+
+    def get_packets_loss(self):
+        return self.packets_loss
+
     def get_dict(self):
         return {
             'send': self.send,
@@ -70,6 +81,7 @@ class NETWORKMODEL:
             'dropin': self.dropin,
             'dropout': self.dropout,
             'speed': self.speed,
+            'packets_loss': self.packets_loss
         }
     
     def __str__(self):
